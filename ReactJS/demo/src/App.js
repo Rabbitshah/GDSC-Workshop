@@ -4,15 +4,19 @@ import Profile from './screens/Profile';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import { useState } from 'react';
+import HomePage from './screens/HomePage';
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
   return (
-    <div class="App ">
+    <div className="App ">
       {/* <Text/> */}
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/register' element={<Register/>}/>
+        <Route path='/' element={<Login setIsLogin={setIsLogin}/>}/>
+        <Route path='/register' element={<Register isLogin={isLogin}/>}/>
+        <Route path='/home' element={<HomePage/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
