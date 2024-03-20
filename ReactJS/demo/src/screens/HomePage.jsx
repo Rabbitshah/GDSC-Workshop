@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import image from '../assets/Image1.jpg'
 import Card from '../components/Cart'
+import Loading from '../components/Loading'
 
 const data = [
     {
@@ -39,13 +40,26 @@ const data = [
 ]
 
 const HomePage = () => {
+    const [isLoading, setIsLoading] = useState(false)
+
+    useEffect( ()=>{
+        setIsLoading(true)
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 10000);
+    }, [])
+    
   return (
-    <div className='flex flex-row'>
-        {data.map((item,index) => (
-            <div key={index}> 
-                <Card data={item}/>
-            </div>
-        ))}
+    <div>
+        {isLoading ? <Loading/> :
+           <div className='flex flex-row'>
+             {data.map((item,index) => (
+                <div key={index}> 
+                    <Card data={item}/>
+                </div>
+            ))}
+           </div>
+        }
     </div>
  
   )
