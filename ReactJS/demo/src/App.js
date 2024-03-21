@@ -14,9 +14,9 @@ function App() {
       {/* <Text/> */}
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Login setIsLogin={setIsLogin}/>}/>
+        <Route path='/login' element={<Login setIsLogin={setIsLogin}/>}/>
         <Route path='/register' element={<Register isLogin={isLogin}/>}/>
-        <Route path='/home' element={<HomePage/>}></Route>
+        <Route path='/' element={<HomePage/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
